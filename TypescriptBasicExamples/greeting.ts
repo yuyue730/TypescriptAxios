@@ -15,8 +15,8 @@ class User {
   }
 }
 
-function greet(person: Person) {
+function greeter(person: Person) {
   return "Hello " + person.firstName + ' ' + person.lastName;
 }
 
-console.log(greet(new User('Yue', 'Yu')));
+console.log(greeter(new User('Yue', 'Yu')));
