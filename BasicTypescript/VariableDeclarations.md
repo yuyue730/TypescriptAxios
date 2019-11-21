@@ -1,74 +1,5 @@
-# Basic Typescript Knowledge
-
-## Basic Types
-### `boolean`
-### `number`
-  * Example: Number in different format
-    ```
-    let decLiteral: number = 20;
-    let hexLiteral: number = 0x14;
-    let binaryLiteral: number = 0b10100;
-    let octalLiteral: number = 0o24;
-    ```
-### `string` and template string
-  * Example:
-    ``` 
-    let str: string = `decLiteral = decLiteral ${decLiteral == hexLiteral}`
-    ```
-### Array
-### Tuple
-  * Allow you to express an array with a fixed number of elements whose types are known, but need not be the same. For example: `let x: [string, number]; x = ['hello', 3];`
-  * Access an element outside the set of known indices will fail transpilation. For example
-    ```
-    let x: [string, number] = ["Hello", 10];
-    console.log(`${x[2]}`)
-    ```
-    when transpiling, we will see `error TS2493: Tuple type '[string, number]' of length '2' has no element at index '2'.`
-
-### `enum`
-  * A sweet feature of enum in Typescript is **Go from a numeric value to the name of that value in the enum**. For example
-    ```
-    enum color {
-      Red = 1, Green, Blue
-    };
-    let colorName = color[2];
-    console.log(colorName);   //output "Green"
-    ```
-
-### `any`
-
-### `void`
-  * The opposite of `any`, the absence of any type. Usually see as return type of a function that do not return a value.
-
-### `null` and `undefined`
-
-### `never`
-  * Type of value that never occur. Can be a return type of a function that always throws an exception. For example
-    ```
-    function func1(): never {
-      return 0;
-    } //Error message: Type '0' is not assignable to type 'never'.(2322)
-
-    function func2(): never {
-      throw("Hello World");
-    } //Okay
-    ```
-### `object` -- Anything that is not primitive type.
-  For example,
-  ```
-  function func3(a: object) {
-    console.log(a);
-  }
-
-  func3({ a: 2 });  // Okay
-  func3(2);
-    //Error message:  Argument of type '2' is not assignable to parameter of type 'object'.(2345)
-  func3("Hello");
-    //Error message:  Argument of type '"Hello"' is not assignable to parameter of type 'object'.(2345)
-  ```
-
-## Variable Declarations
-### `var` declarations
+# Variable Declarations
+## `var` declarations
   * Scoping rules of `var`:  For example
     ```
     function func(isInit: boolean) {
@@ -100,7 +31,7 @@
       }
       ```
 
-### `let` declarations
+## `let` declarations
   * Variables declared by `let` follows block-scope. The variable cannot be re-declared within the same block scope. But, **variable can be re-declared in the same function scope but different block scop**. For example
     ```
     function func(cond: boolean, x) {
@@ -135,7 +66,7 @@
     ```
     By using `let`, block-scope variable will be captured and IIFE can be avoided. Output will be `0 1 2`.
 
-### `const` declarations
+## `const` declarations
   * Same scoping rules as `let`.
   * Object value cannot be changed, but object member value can be changed unless member is defined as `readonly`. For example,
     ```
@@ -147,7 +78,7 @@
     someObj.b = 5;  //Okay
     ```
 
-### Destructing
+## Destructing
   * Array Destructing
     ```
     let [a, b] = [1, 2]; //a=1, b=2
@@ -194,7 +125,7 @@
       //Error Message: Argument of type '{}' is not assignable to parameter of type '{ a: string; b?: number | undefined; }'.
     ```
 
-### Spread
+## Spread
   * Array Spread
     ```
     let a = [2, 3];
@@ -206,46 +137,3 @@
     let obj1 = { a: 3, b: "Hello", c: true };
     let obj2 = { ...obj1, b: "World" }; //obj1={a:3,b:"World",c:true}
     ```
-
-## Interfaces
-  * Optional Property:
-    ```
-    interface OptInt {
-      a ?: string,
-      b: number
-    };
-    function func(obj: OptInt): void {
-      //
-    }
-
-    func({ b: 4 }); //Okay, a is optional
-    ```
-  * Readonly Property
-    * Readonly property is only modifiable when object is created.
-      ```
-      interface ROInt {
-        readonly a: string,
-        readonly b: number
-      };
-
-      let p: ROInt = { a: "Hello", b: 5 };
-      p.a = "World";  
-        //Error Message: Cannot assign to 'a' because it is a read-only property.(2540)
-      p.b = 4;
-        //Same error
-      ```
-    * `ReadonlyArray<number>`
-      ```
-      let ROArr: ReadonlyArray<number> = [1, 2, 3, 4];
-
-      ROArr.push(5); //Error Message: Property 'push' does not exist on type 'readonly number[]'.
-      ROArr[0] = 0; 
-        //Error Message: Index signature in type 'readonly number[]' only permits reading.(2542)
-      ROArr.length = 5; 
-        //Error Message: Cannot assign to 'length' because it is a read-only property.(2540)
-      ```
-      **Even assigning the entire ReadonlyArray back to a normal array is illegal**
-      ```
-      let arr = ROArr as [];  //arr will be undefined
-      arr[0] = 0; //Error Message: Type '0' is not assignable to type 'undefined'.(2322)
-      ```
