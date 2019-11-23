@@ -15,6 +15,6 @@
   * Use `tsc file.ts` to compile the typescript file into javascript file
 
 ## Basic Typescript Knowledge
-  ### [Basic Types](../BasicTypescript/BasicTypes.md)
-  ### [Variable Declarations](../BasicTypescript/VariableDeclarations.md)
-  ### [Interfaces](../BasicTypescript/Interfaces.md)
+  ### [Basic Types](./BasicTypescript/BasicTypes.md)
+  ### [Variable Declarations](./BasicTypescript/VariableDeclarations.md)
+  ### [Interfaces](./BasicTypescript/Interfaces.md)
