@@ -104,3 +104,40 @@
       }
     }
     ```
+
+## Abstract Classes
+  * Base classes which other classes may be derived, they may not be instantiated directly. Abstract may contain implementations for its members.
+  * Methods with in an abstract class that are marked as abstract does not include an implementation in base (abstract) class and must be implemented in derived classes. 
+  * Example:
+    ```
+    abstract class Department {
+      public name: string
+      constructor(theName: string) {
+        this.name = theName;
+      }
+      public printName(): void {
+        console.log(`Name is ${this.name}`);
+      }
+      abstract printMeeting(): void;  // Must be implemented in derived class
+    }
+
+    class Engineering extends Department {
+      constructor() {
+        super("Enigneering");
+      }
+      printMeeting() {
+        console.log("Engineering meets at 10 AM.");
+      }
+      printNumEmployee() {
+        console.log("5 team members");
+      }
+    }
+
+    let depart1: Department;
+    depart1 = new Engineering();    //Okay
+    depart2 = new Department(); //Error: Cannot create an instance of an abstract class.(2511)
+
+    depart1.printName();    //Okay
+    depart1.printMeeting(); //Okay
+    depart1.printNumEmployee(); //Error: Department class does not have printNumEmployee method
+    ```
