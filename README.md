@@ -18,3 +18,6 @@
   ### [Basic Types](./BasicTypescript/BasicTypes.md)
   ### [Variable Declarations](./BasicTypescript/VariableDeclarations.md)
   ### [Interfaces](./BasicTypescript/Interfaces.md)
+  ### [Classes](./BasicTypescript/Classes.md)
+  ### [Functions](./BasicTypescript/Functions.md)
+  ### [Generics](./BasicTypescript/Generics.md)
