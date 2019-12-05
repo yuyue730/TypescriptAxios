@@ -21,3 +21,4 @@
   ### [Classes](./BasicTypescript/Classes.md)
   ### [Functions](./BasicTypescript/Functions.md)
   ### [Generics](./BasicTypescript/Generics.md)
+  ### [Type Inference](./BasicTypescript/TypeInference.md)
