@@ -151,3 +151,37 @@
       console.log(pad.getPaddingString());    //const pad: SpaceRepeatingPadder
     }
     ```
+
+## Nullable Types
+  * Two special types `null` and `undefined`. By default, compiler consideres `null` and `undefined` assignable to anything.
+  * The `--strictNullChecks` flag: when you declare a variable, it does not automatically include `null` and `undefined`. You need to include them in a union type.
+  * Optional parameters and properties: With `--strictNullChecks`, an optional parameter automatically adds `| undefined`. For example,
+    ```
+    function func(a: number, b?: number) {
+      return a + (b || 0);
+    }
+
+    func(1, 2);
+    func(1, undefined);
+    func(1, null);  //Error Msg: Argument of type 'null' is not assignable to parameter of type 'number | undefined'.(2345)
+    ```
+  * Type guards and type assertions: Postfix `!`: `identifier!` removes `null` and `undefined` from type of `identifier`. 
+
+## String Literal Types
+  * Specify the exact value a string must have. For example,
+    ```
+    type Easing = "ease-in" | "ease-out" | "ease-in-out";
+
+    function animate(dx: number, dy: number, easing: Easing) {
+      if (easing === "ease-in") {
+        //...
+      } else if (easing === "ease-out") {
+        //...
+      } else if (easing === "ease-in-out") {
+        //...
+      } else { }
+    }
+
+    animate(1, 2, "ease-in");
+    animate(1, 2, "right"); //ErrorMsg: Argument of type '"right"' is not assignable to parameter of type 'Easing'.(2345)
+    ```
