@@ -28,3 +28,12 @@
   * Cancel requests
   * Automatic transforms for JSON Data
   * Client side support for protecting against `XSRF`
+
+## Create Typescript project using `typescript-library-starter`
+  ```
+  git clone https://github.com/alexjoverm/typescript-library-starter.git src
+  cd src
+
+  # Run npm install and write your library name when asked. That's all!
+  npm install
+  ```
