@@ -36,8 +36,15 @@ function registerSimpleRouter() {
   })
 }
 
+function registerBaseRouter() {
+  router.get('/base/get', function(req, res) {
+    res.json(req.query)
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
+registerBaseRouter()
 
 app.use(router)
