@@ -22,6 +22,7 @@
 
 ## Features
   * Make `XMLHTTPRequests` from the browser
+    * Process url into correct form, 
   * Support the `Promise` API
   * Intercept request and response
   * Transform request and response data
@@ -41,5 +42,5 @@
 ## Setup Demo for the project
   * Setup `SourceCodes/examples` directory and add `"dev": "node examples/server.js"` to `package.json` scripts section.
   * For Basic `XMLHttpRequest` part, add `simple` directory under `SourceCodes/examples` and call axios to send Request via `axios`.
-  * Setup routing to `simple` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * Setup routing to `simple`, `base` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
