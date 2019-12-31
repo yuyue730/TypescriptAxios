@@ -22,7 +22,7 @@
 
 ## Features
   * Make `XMLHTTPRequests` from the browser
-    * Transform URL (especially all parameters), Request Data (body) into correct form before `XMLHttpRequest` opens and sends data from browser.  
+    * Transform URL (especially all parameters), Request Data (body), headers (normalize `Content-Type` field name and pass the correct field value) into correct form before `XMLHttpRequest` opens and sends data from browser.  
   * Support the `Promise` API
   * Intercept request and response
   * Transform request and response data

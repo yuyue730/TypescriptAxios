@@ -1,5 +1,7 @@
 import axios from '../../src/index'
 
+// Test case 1 through 7 can be used to test processing url
+// Case 1
 axios({
   method: 'get',
   url: '/base/get',
@@ -8,6 +10,7 @@ axios({
   }
 })
 
+// Case 2
 axios({
   method: 'get',
   url: '/base/get',
@@ -18,6 +21,7 @@ axios({
   }
 })
 
+// Case 3
 const date = new Date()
 
 axios({
@@ -28,6 +32,7 @@ axios({
   }
 })
 
+// Case 4
 axios({
   method: 'get',
   url: '/base/get',
@@ -36,6 +41,7 @@ axios({
   }
 })
 
+// Case 5
 axios({
   method: 'get',
   url: '/base/get',
@@ -45,6 +51,7 @@ axios({
   }
 })
 
+// Case 6
 axios({
   method: 'get',
   url: '/base/get#hash',
@@ -53,6 +60,7 @@ axios({
   }
 })
 
+// Case 7
 axios({
   method: 'get',
   url: '/base/get?foo=bar',
@@ -61,6 +69,8 @@ axios({
   }
 })
 
+// Test case 8 through 9 can be used to test processing request data
+// Case 8
 axios({
   method: 'post',
   url: '/base/post',
@@ -70,10 +80,45 @@ axios({
   }
 })
 
+// Case 9
 const arr = new Int32Array([21, 31])
 
 axios({
   method: 'post',
   url: '/base/buffer',
   data: arr
+})
+
+// Test case 10 through 12 can be used to test processing headers
+// Case 10
+axios({
+  method: 'post',
+  url: '/base/post',
+  data: {
+    a: 1,
+    b: 2
+  }
+})
+
+// Case 11
+axios({
+  method: 'post',
+  url: '/base/post',
+  headers: {
+    'content-type': 'application/json;'
+  },
+  data: {
+    a: 1,
+    b: 2
+  }
+})
+
+// Case 12
+const paramsString = 'q=URLUtils.searchParams&topic=api'
+const searchParams = new URLSearchParams(paramsString)
+
+axios({
+  method: 'post',
+  url: '/base/post',
+  data: searchParams
 })
