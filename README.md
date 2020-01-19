@@ -23,7 +23,9 @@
 ## Features
   * Make `XMLHTTPRequests` from the browser
     * Transform URL (especially all parameters), Request Data (body), headers (normalize `Content-Type` field name and pass the correct field value) into correct form before `XMLHttpRequest` opens and sends data from browser.
-    * Define `AxiosResponse` type and wrap it into `AxiosPromise` type. Handle `XMLHTTPRequestResponse` in a `AxiosPromise` for asynchronization purpose. Convert `response.headers` from a string to a `json` object.
+    * Define `AxiosResponse` type and wrap it into `AxiosPromise` type. Handle `XMLHTTPRequestResponse` in a `AxiosPromise` for asynchronization purpose.
+      * Convert `response.headers` from a string to a `json` object. 
+      * Convert `response.data` from a string into a `json` object when possible.
   * Support the `Promise` API
   * Intercept request and response
   * Transform request and response data
