@@ -28,6 +28,7 @@
       * Convert `response.data` from a string into a `json` object when possible.
   * Error Handling
     * Handle response with wrong Network Error, Timeout and Non-200 response status
+    * Encapsulate error into an `AxiosError` class object.
   * Support the `Promise` API
   * Intercept request and response
   * Transform request and response data
