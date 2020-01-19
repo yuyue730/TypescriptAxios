@@ -26,6 +26,8 @@
     * Define `AxiosResponse` type and wrap it into `AxiosPromise` type. Handle `XMLHTTPRequestResponse` in a `AxiosPromise` for asynchronization purpose.
       * Convert `response.headers` from a string to a `json` object. 
       * Convert `response.data` from a string into a `json` object when possible.
+  * Error Handling
+    * Handle response with wrong Network Error, Timeout and Non-200 response status
   * Support the `Promise` API
   * Intercept request and response
   * Transform request and response data
@@ -44,6 +46,6 @@
 
 ## Setup Demo for the project
   * Setup `SourceCodes/examples` directory and add `"dev": "node examples/server.js"` to `package.json` scripts section.
-  * For `XMLHttpRequest` part, add `simple`, `basic` and `basic_promise` directory under `SourceCodes/examples` and call axios to send Request via `axios`.
-  * Setup routing to `simple`, `base` and `basic_promise` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * For `XMLHttpRequest` part, add `simple`, `basic`, `basic_promise` and `error_handle` directory under `SourceCodes/examples` and call axios to send Request via `axios`.
+  * Setup routing to `simple`, `base`, `basic_promise` and `error_handle` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
