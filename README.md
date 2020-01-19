@@ -22,7 +22,8 @@
 
 ## Features
   * Make `XMLHTTPRequests` from the browser
-    * Transform URL (especially all parameters), Request Data (body), headers (normalize `Content-Type` field name and pass the correct field value) into correct form before `XMLHttpRequest` opens and sends data from browser.  
+    * Transform URL (especially all parameters), Request Data (body), headers (normalize `Content-Type` field name and pass the correct field value) into correct form before `XMLHttpRequest` opens and sends data from browser.
+    * Define `AxiosResponse` type and wrap it into `AxiosPromise` type. Handle `XMLHTTPRequestResponse` in a `AxiosPromise` for asynchronization purpose. 
   * Support the `Promise` API
   * Intercept request and response
   * Transform request and response data
@@ -41,6 +42,6 @@
 
 ## Setup Demo for the project
   * Setup `SourceCodes/examples` directory and add `"dev": "node examples/server.js"` to `package.json` scripts section.
-  * For `XMLHttpRequest` part, add `simple` and `basic` directory under `SourceCodes/examples` and call axios to send Request via `axios`.
-  * Setup routing to `simple`, `base` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * For `XMLHttpRequest` part, add `simple`, `basic` and `basic_promise` directory under `SourceCodes/examples` and call axios to send Request via `axios`.
+  * Setup routing to `simple`, `base` and `basic_promise` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
