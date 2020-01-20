@@ -32,6 +32,7 @@
   * Define an Axios interface with methods `request`, `get`, `delete`, `delete`, `head`, `options`, `post`, `put` and `patch`.
     * Encapsulate axios into an `Axios` class and an `AxiosInterface` that has one method. Mixin the class and the interface with request method in the `Axios` class binded to the interface's method.
     * Support `axios()` overloads as `axios(config)` and `axios(url, config)`.
+    * Support generic types for response data.
 
 ## Create Typescript project using `typescript-library-starter`
   ```

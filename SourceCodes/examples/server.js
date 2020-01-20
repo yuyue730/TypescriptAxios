@@ -110,7 +110,15 @@ function registerExtendRouter() {
   router.patch('/extend/patch', function(req, res) {
     res.json(req.body)
   })
+}
 
+function registerExtendOverloadRouter() {
+  router.post('/extend_overload/post', function(req, res) {
+    res.json(req.body)
+  })
+}
+
+function registerExtendGenericRouter() {
   router.get('/extend/user', function(req, res) {
     res.json({
       code: 0,
@@ -123,12 +131,6 @@ function registerExtendRouter() {
   })
 }
 
-function registerExtendOverloadRouter() {
-  router.post('/extend_overload/post', function(req, res) {
-    res.json(req.body)
-  })
-}
-
 const router = express.Router()
 
 registerSimpleRouter()
@@ -136,5 +138,6 @@ registerBaseRouter()
 registerErrorRouter()
 registerExtendRouter()
 registerExtendOverloadRouter()
+registerExtendGenericRouter()
 
 app.use(router)
