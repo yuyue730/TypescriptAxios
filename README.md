@@ -29,12 +29,8 @@
   * Error Handling
     * Handle response with wrong Network Error, Timeout and Non-200 response status
     * Encapsulate error into an `AxiosError` class object.
-  * Support the `Promise` API
-  * Intercept request and response
-  * Transform request and response data
-  * Cancel requests
-  * Automatic transforms for JSON Data
-  * Client side support for protecting against `XSRF`
+  * Define an Axios interface with methods `request`, `get`, `delete`, `delete`, `head`, `options`, `post`, `put` and `patch`.
+    * Encapsulate axios into an `Axios` class and an `AxiosInterface` that has one method. Mixin the class and the interface with request method in the `Axios` class binded to the interface's method.
 
 ## Create Typescript project using `typescript-library-starter`
   ```
@@ -47,6 +43,6 @@
 
 ## Setup Demo for the project
   * Setup `SourceCodes/examples` directory and add `"dev": "node examples/server.js"` to `package.json` scripts section.
-  * For `XMLHttpRequest` part, add `simple`, `basic`, `basic_promise` and `error_handle` directory under `SourceCodes/examples` and call axios to send Request via `axios`.
-  * Setup routing to `simple`, `base`, `basic_promise` and `error_handle` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * For `XMLHttpRequest` part, add `simple`, `basic`, `basic_promise`, `error_handle` and `extend` directory under `SourceCodes/examples` and call axios to send Request via `axios`.
+  * Setup routing to `simple`, `base`, `basic_promise`, `error_handle` and `extend` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
