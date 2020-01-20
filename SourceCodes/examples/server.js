@@ -123,11 +123,18 @@ function registerExtendRouter() {
   })
 }
 
+function registerExtendOverloadRouter() {
+  router.post('/extend_overload/post', function(req, res) {
+    res.json(req.body)
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
 registerBaseRouter()
 registerErrorRouter()
 registerExtendRouter()
+registerExtendOverloadRouter()
 
 app.use(router)
