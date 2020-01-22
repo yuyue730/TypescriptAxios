@@ -131,6 +131,12 @@ function registerExtendGenericRouter() {
   })
 }
 
+function registerInterceptorRouter() {
+  router.get('/interceptor/get', function(req, res) {
+    res.end('hello')
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
@@ -139,5 +145,6 @@ registerErrorRouter()
 registerExtendRouter()
 registerExtendOverloadRouter()
 registerExtendGenericRouter()
+registerInterceptorRouter()
 
 app.use(router)

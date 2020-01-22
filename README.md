@@ -33,6 +33,14 @@
     * Encapsulate axios into an `Axios` class and an `AxiosInterface` that has one method. Mixin the class and the interface with request method in the `Axios` class binded to the interface's method.
     * Support `axios()` overloads as `axios(config)` and `axios(url, config)`.
     * Support generic types for response data.
+  * Interceptor: Axios in typescript also support intercepting requests or responses before they are handled by `then` or `catch`.
+    * Diagram demonstrating how this works.
+
+      <img src="./Images/interceptor.png" height=80% width=80%>
+    
+    * Define an `InterceptorManager` interface, and expose `resolve` and `eject` methods. In the `InterceptorManager` class implementation, define an `Interceptor` interface and store all interceptors as an `Array<Interceptor>`.
+    * Add member `interceptors` into `Axios` class as a `PromiseChain`, when `sendRequest`, going through all Promises in the chain before sending request to the backend.
+
 
 ## Create Typescript project using `typescript-library-starter`
   ```
@@ -45,6 +53,6 @@
 
 ## Setup Demo for the project
   * Setup `SourceCodes/examples` directory and add `"dev": "node examples/server.js"` to `package.json` scripts section.
-  * For `XMLHttpRequest` part, add `simple`, `basic`, `basic_promise`, `error_handle` and `extend` directory under `SourceCodes/examples` and call axios to send Request via `axios`.
-  * Setup routing to `simple`, `base`, `basic_promise`, `error_handle` and `extend` folder in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * Setup routing to `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload` and `extend_generic` directory in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * Add demo examples of `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload` and `extend_generic` directory under `SourceCodes/examples` and let axios  send Request via calling `axios` function or its exposed APIs defined in the interface.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
