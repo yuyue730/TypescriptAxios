@@ -149,6 +149,12 @@ function registerConfigTransformRouter() {
   })
 }
 
+function registerConfigAxiosCreateRouter() {
+  router.post('/config_axiosCreate/post', function(req, res) {
+    res.json(req.body)
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
@@ -160,5 +166,6 @@ registerExtendGenericRouter()
 registerInterceptorRouter()
 registerConfigMergeRouter()
 registerConfigTransformRouter()
+registerConfigAxiosCreateRouter()
 
 app.use(router)

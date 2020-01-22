@@ -1,18 +1,22 @@
 import axios, { AxiosTransformer } from '../../src/index';
 import qs from 'qs';
 
-axios({
+const instance = axios.create({
   transformRequest: [(function(data) {
     data.requestText = "Hello";
     return qs.stringify(data)
   }), ...(axios.defaults.transformRequest as AxiosTransformer[])],
   transformResponse: [...(axios.defaults.transformResponse as AxiosTransformer[]), function(data) {
     if (typeof data === 'object') {
+      data.b = 2
       data.responseText = "World";
     }
     return data
-  }],
-  url: '/config_transform/post',
+  }]
+})
+
+instance({
+  url: '/config_axiosCreate/post',
   method: 'post',
   data: {
     a: 1

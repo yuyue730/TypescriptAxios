@@ -44,6 +44,7 @@
     * Define some default configurations and pass the default configuration into Axios object when the instance is created.
     * **Merge Configurations**: Implement three configuration merge strategies (`defaultStrat`, `fromUserValStrat` and `deepMergeStrat`) to combine default Axios configurations with user specified configurations. Call `mergeConfig` before adding `interceptors` into Axios request.
     * **TransformRequest/TransformResponse**: Implement transformer functions for requests and responses. Transform Request into correct form before send data to backend. And transform response into correct form before Promise resolves.
+    * Support create a static Axios instance by adding a `AxiosStatic` interface that extends `AxiosInterface` and adding an `create()` function for `AxiosStatic` instance.
 
 
 ## Create Typescript project using `typescript-library-starter`
@@ -57,7 +58,7 @@
 
 ## Setup Demo for the project
   * Setup `SourceCodes/examples` directory and add `"dev": "node examples/server.js"` to `package.json` scripts section.
-  * Setup routing to `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor` and `config_merge` directory in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
-  * Add demo examples of `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor` and `config_merge` directory under `SourceCodes/examples` and let axios send Request via calling `axios` function or its exposed APIs defined in the interface.
-  * Install npm packages `qs` and `@types/qa` for `config_merge` demo.
+  * Setup routing to `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor`, `config_merge`, `config_transform` and `config_axiosCreate` directory in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * Add demo examples of `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor`, `config_merge`, `config_transform` and `config_axiosCreate` directory under `SourceCodes/examples` and let axios send Request via calling `axios` function or its exposed APIs defined in the interface.
+  * Install npm packages `qs` and `@types/qa` for `config_merge` demo. This package can transform JSON into a proper text.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
