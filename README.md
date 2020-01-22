@@ -40,6 +40,8 @@
     
     * Define an `InterceptorManager` interface, and expose `resolve` and `eject` methods. In the `InterceptorManager` class implementation, define an `Interceptor` interface and store all interceptors as an `Array<Interceptor>`.
     * Add member `interceptors` into `Axios` class as a `PromiseChain`, when `sendRequest`, going through all Promises in the chain before sending request to the backend.
+  * Merge default and user-customized configurations
+    * Define some default configurations and pass the default configuration into Axios object when the instance is created.
 
 
 ## Create Typescript project using `typescript-library-starter`
