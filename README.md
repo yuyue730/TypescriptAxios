@@ -45,6 +45,9 @@
     * **Merge Configurations**: Implement three configuration merge strategies (`defaultStrat`, `fromUserValStrat` and `deepMergeStrat`) to combine default Axios configurations with user specified configurations. Call `mergeConfig` before adding `interceptors` into Axios request.
     * **TransformRequest/TransformResponse**: Implement transformer functions for requests and responses. Transform Request into correct form before send data to backend. And transform response into correct form before Promise resolves.
     * Support create a static Axios instance by adding a `AxiosStatic` interface that extends `AxiosInterface` and adding an `create()` function for `AxiosStatic` instance.
+  * Cancel Request
+    * Add a `CancelToken` object to `axios`, the `CancelToken` object will provide a `source` function that returns the `CancelToken` object itself and the `cancel` function.
+    * For asynchroize purpose, `cancelToken` stores a pending `Promise` object. When the `cancel` function was executed, this will resolve the pending promise, cancel the request and call `reject()`.
 
 
 ## Create Typescript project using `typescript-library-starter`
