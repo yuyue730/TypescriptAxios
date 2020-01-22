@@ -137,6 +137,12 @@ function registerInterceptorRouter() {
   })
 }
 
+function registerConfigMergeRouter() {
+  router.post('/config_merge/post', function(req, res) {
+    res.json(req.body)
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
@@ -146,5 +152,6 @@ registerExtendRouter()
 registerExtendOverloadRouter()
 registerExtendGenericRouter()
 registerInterceptorRouter()
+registerConfigMergeRouter()
 
 app.use(router)

@@ -42,6 +42,7 @@
     * Add member `interceptors` into `Axios` class as a `PromiseChain`, when `sendRequest`, going through all Promises in the chain before sending request to the backend.
   * Merge default and user-customized configurations
     * Define some default configurations and pass the default configuration into Axios object when the instance is created.
+    * Implement three configuration merge strategies (`defaultStrat`, `fromUserValStrat` and `deepMergeStrat`) to combine default Axios configurations with user specified configurations. Call `mergeConfig` before adding `interceptors` into Axios request.
 
 
 ## Create Typescript project using `typescript-library-starter`
@@ -55,6 +56,7 @@
 
 ## Setup Demo for the project
   * Setup `SourceCodes/examples` directory and add `"dev": "node examples/server.js"` to `package.json` scripts section.
-  * Setup routing to `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload` and `extend_generic` directory in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
-  * Add demo examples of `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload` and `extend_generic` directory under `SourceCodes/examples` and let axios  send Request via calling `axios` function or its exposed APIs defined in the interface.
+  * Setup routing to `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor` and `config_merge` directory in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * Add demo examples of `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor` and `config_merge` directory under `SourceCodes/examples` and let axios send Request via calling `axios` function or its exposed APIs defined in the interface.
+  * Install npm packages `qs` and `@types/qa` for `config_merge` demo.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
