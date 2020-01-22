@@ -143,6 +143,12 @@ function registerConfigMergeRouter() {
   })
 }
 
+function registerConfigTransformRouter() {
+  router.post('/config_transform/post', function(req, res) {
+    res.json(req.body)
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
@@ -153,5 +159,6 @@ registerExtendOverloadRouter()
 registerExtendGenericRouter()
 registerInterceptorRouter()
 registerConfigMergeRouter()
+registerConfigTransformRouter()
 
 app.use(router)
