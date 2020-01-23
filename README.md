@@ -53,6 +53,9 @@
     * Add `url` utility function to determine whether url in the request is the same origin as current window url.
     * Read XREF Token value from cookie based on `xsrfCookieName`
     * Add `xsrfHeaderName` as header and `xsrfCookieValue` as value to request
+  * Upload Download monitoring
+    * Add `onDownloadProgress` and `onUploadProgress` functions to `AxiosRequestConfig`. 
+    * Bind both events to `XMLHttpRequest.onprogress` and `XMLHttpRequest.upload.onprogress`
 
 ## Create Typescript project using `typescript-library-starter`
   ```
@@ -65,10 +68,11 @@
 
 ## Setup Demo for the project
   * Setup `SourceCodes/examples` directory and add `"dev": "node examples/server.js"` to `package.json` scripts section.
-  * Setup routing to `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor`, `config_merge`, `config_transform` and `config_axiosCreate` directory in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
-  * Add demo examples of `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor`, `config_merge`, `config_transform` and `config_axiosCreate` directory under `SourceCodes/examples` and let axios send Request via calling `axios` function or its exposed APIs defined in the interface.
+  * Setup routing to all director iesin `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
+  * Add demo examples of all directories under `SourceCodes/examples` and let axios send Request via calling `axios` function or its exposed APIs defined in the interface.
   * Install npm packages `qs` and `@types/qa` for `config_merge` demo. This package can transform JSON into a proper text.
   * Install npm packages `cookie-parser` for `withCredential` demo. Follow the steps in `SourceCodes/withCredentials/app.ts` to test the feature.
+  * Install npm packages `nprogress`, `css-loader`, `connect-multiparty` and `style-loader` for `upload_download` demo. Follow the steps in `SourceCodes/upload_download/app.ts` to test both features.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
 
 ## Cross-site Request Forgery (XSRF) Prevention (TBD)
