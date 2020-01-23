@@ -50,9 +50,12 @@
     * For asynchroization purpose, `cancelToken` stores a pending `Promise` object. When the `cancel` function was executed, this will resolve the pending promise, cancel the request and call `reject()`.
   * `withCredentials`: If `http://domain-a.com` wants to send a request to `http://api.domain-b.com/get` with Cookies under `api.domain-b.com`. We need an additional boolean setup in `XMLHttpRequest` called `withCredentials`. So we also add this parameter in `AxiosRequestConfig` interface.
   * Cross-site Request Forgery (XSRF) Prevention (for knowledge see section below):
-    * Add `url` utility function to determine whether url in the request is the same origin as current window url.
-    * Read XREF Token value from cookie based on `xsrfCookieName`
-    * Add `xsrfHeaderName` as header and `xsrfCookieValue` as value to request
+    * Definition of XSRF: 
+      * CSRF (Cross-Site Request Forgery) is an attack that impersonates a trusted user and sends a website unwanted commands. This can be done, for example, by including malicious parameters in a URL behind a link that purports to go somewhere else
+    * Implementation Detail:
+      * Add `url` utility function to determine whether url in the request is the same origin as current window url.
+      * Read XREF Token value from cookie based on `xsrfCookieName`
+      * Add `xsrfHeaderName` as header and `xsrfCookieValue` as value to request
   * Upload Download monitoring
     * Add `onDownloadProgress` and `onUploadProgress` functions to `AxiosRequestConfig`. 
     * Bind both events to `XMLHttpRequest.onprogress` and `XMLHttpRequest.upload.onprogress`
@@ -74,5 +77,4 @@
   * Install npm packages `cookie-parser` for `withCredential` demo. Follow the steps in `SourceCodes/withCredentials/app.ts` to test the feature.
   * Install npm packages `nprogress`, `css-loader`, `connect-multiparty` and `style-loader` for `upload_download` demo. Follow the steps in `SourceCodes/upload_download/app.ts` to test both features.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
-
-## Cross-site Request Forgery (XSRF) Prevention (TBD)
+  
