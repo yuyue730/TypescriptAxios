@@ -21,6 +21,12 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler))
 
+app.use(express.static(__dirname, {
+  setHeaders (res) {
+    res.cookie('XSRF-TOKEN-D', 'XSRF-Cookie-Value-1')
+  }
+}))
+
 app.use(express.static(__dirname))
 
 app.use(bodyParser.json())
@@ -180,6 +186,12 @@ function registerWithCredentialsRouter() {
   })
 }
 
+function registerWithXsrfRouter() {
+  router.get('/xsrf/get', function(req, res) {
+    res.json(req.cookies)
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
@@ -194,5 +206,6 @@ registerConfigTransformRouter()
 registerConfigAxiosCreateRouter()
 registerCancelRouter()
 registerWithCredentialsRouter()
+registerWithXsrfRouter()
 
 app.use(router)

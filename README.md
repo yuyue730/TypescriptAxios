@@ -49,7 +49,10 @@
     * Add a `CancelToken` object to `axios`, the `CancelToken` object will provide a `source` function that returns the `CancelToken` object itself and the `cancel` function.
     * For asynchroization purpose, `cancelToken` stores a pending `Promise` object. When the `cancel` function was executed, this will resolve the pending promise, cancel the request and call `reject()`.
   * `withCredentials`: If `http://domain-a.com` wants to send a request to `http://api.domain-b.com/get` with Cookies under `api.domain-b.com`. We need an additional boolean setup in `XMLHttpRequest` called `withCredentials`. So we also add this parameter in `AxiosRequestConfig` interface.
-
+  * Cross-site Request Forgery (XSRF) Prevention (for knowledge see section below):
+    * Add `url` utility function to determine whether url in the request is the same origin as current window url.
+    * Read XREF Token value from cookie based on `xsrfCookieName`
+    * Add `xsrfHeaderName` as header and `xsrfCookieValue` as value to request
 
 ## Create Typescript project using `typescript-library-starter`
   ```
@@ -67,3 +70,5 @@
   * Install npm packages `qs` and `@types/qa` for `config_merge` demo. This package can transform JSON into a proper text.
   * Install npm packages `cookie-parser` for `withCredential` demo. Follow the steps in `SourceCodes/withCredentials/app.ts` to test the feature.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.
+
+## Cross-site Request Forgery (XSRF) Prevention (TBD)
