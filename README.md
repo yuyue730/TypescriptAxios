@@ -47,7 +47,8 @@
     * Support create a static Axios instance by adding a `AxiosStatic` interface that extends `AxiosInterface` and adding an `create()` function for `AxiosStatic` instance.
   * Cancel Request
     * Add a `CancelToken` object to `axios`, the `CancelToken` object will provide a `source` function that returns the `CancelToken` object itself and the `cancel` function.
-    * For asynchroize purpose, `cancelToken` stores a pending `Promise` object. When the `cancel` function was executed, this will resolve the pending promise, cancel the request and call `reject()`.
+    * For asynchroization purpose, `cancelToken` stores a pending `Promise` object. When the `cancel` function was executed, this will resolve the pending promise, cancel the request and call `reject()`.
+  * `withCredentials`: If `http://domain-a.com` wants to send a request to `http://api.domain-b.com/get` with Cookies under `api.domain-b.com`. We need an additional boolean setup in `XMLHttpRequest` called `withCredentials`. So we also add this parameter in `AxiosRequestConfig` interface.
 
 
 ## Create Typescript project using `typescript-library-starter`
@@ -64,4 +65,5 @@
   * Setup routing to `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor`, `config_merge`, `config_transform` and `config_axiosCreate` directory in `SourceCodes/examples/index.html` and `SourceCodes/examples/server.js`.
   * Add demo examples of `simple`, `basic`, `basic_promise`, `error_handle`, `extend`, `extend_overload`, `extend_generic`, `interceptor`, `config_merge`, `config_transform` and `config_axiosCreate` directory under `SourceCodes/examples` and let axios send Request via calling `axios` function or its exposed APIs defined in the interface.
   * Install npm packages `qs` and `@types/qa` for `config_merge` demo. This package can transform JSON into a proper text.
+  * Install npm packages `cookie-parser` for `withCredential` demo. Follow the steps in `SourceCodes/withCredentials/app.ts` to test the feature.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response in Chrome.

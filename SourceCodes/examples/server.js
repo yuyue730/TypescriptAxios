@@ -1,9 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const WebpackConfig = require('./webpack.config')
+
+require('./server2')
 
 const app = express()
 const compiler = webpack(WebpackConfig)
@@ -22,6 +25,8 @@ app.use(express.static(__dirname))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(cookieParser())
 
 const port = process.env.PORT || 8080
 module.exports = app.listen(port, () => {
@@ -169,6 +174,12 @@ function registerCancelRouter () {
   })
 }
 
+function registerWithCredentialsRouter() {
+  router.get('/withCredentials/get', function(req, res) {
+    res.json(req.cookies)
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
@@ -182,5 +193,6 @@ registerConfigMergeRouter()
 registerConfigTransformRouter()
 registerConfigAxiosCreateRouter()
 registerCancelRouter()
+registerWithCredentialsRouter()
 
 app.use(router)
