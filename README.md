@@ -62,6 +62,9 @@
   * HTTP Authorization
     * The HTTP Authorization request header contains the credentials to authenticate a user agent with a server, usually after the server has responded with a `401 Unauthorized` status and the `WWW-Authenticate` header.
     * Add `auth` representing credential to `AxiosRequestConfig`. Calling `btoa()` to `username:password` pair and pack it in the `XMLHTTPRequest`.
+  * Customized status check
+    * Add `validateStatus` in `AxiosRequestConfig` which defines whether to resolve or reject the promise for a given HTTP response status code.
+    * If `validateStatus` returns `true` (or is set to `null` or `undefined`), the promise will be resolved; otherwise, the promise will be rejected.
 
 ## Create Typescript project using `typescript-library-starter`
   ```

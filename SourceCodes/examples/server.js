@@ -221,6 +221,13 @@ function registerAuthorizationRouter() {
   })
 }
 
+function registerValidateStatusRouter() {
+  router.get('/validateStatus/304', function(req, res) {
+    res.status(304)
+    res.end()
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
@@ -238,5 +245,6 @@ registerWithCredentialsRouter()
 registerWithXsrfRouter()
 registerWithUploadRouter()
 registerAuthorizationRouter()
+registerValidateStatusRouter()
 
 app.use(router)
