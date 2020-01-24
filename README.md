@@ -68,6 +68,9 @@
   * `baseURL`
     * Add `baseURL` which defines a pre-defined base URL in request.
     * If input url is relative, combine basde and input url in the `XMLHTTPRequest`.
+  * static methods
+    * Support `Axios.all()` and `Axios.spread()` for processing requests and responses in batch.
+    * `getUri()` to derive URL based on `AxiosRequestConfig` without calling service.
 
 ## Create Typescript project using `typescript-library-starter`
   ```

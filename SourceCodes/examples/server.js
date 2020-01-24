@@ -235,6 +235,16 @@ function registerValidateStatusRouter() {
   })
 }
 
+function registerStaticMethodsRouter() {
+  router.get('/staticMethods/A', function(req, res) {
+    res.end('/staticMethods/A responds A')
+  })
+
+  router.get('/staticMethods/B', function(req, res) {
+    res.end('/staticMethods/B responds B')
+  })
+}
+
 const router = express.Router()
 
 registerSimpleRouter()
@@ -253,5 +263,6 @@ registerWithXsrfRouter()
 registerWithUploadRouter()
 registerAuthorizationRouter()
 registerValidateStatusRouter()
+registerStaticMethodsRouter()
 
 app.use(router)

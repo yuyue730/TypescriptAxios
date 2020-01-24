@@ -80,6 +80,8 @@ export interface Axios {
   put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>;
 
   patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>;
+
+  getUri(config?: AxiosRequestConfig): string;
 };
 
 export interface AxiosInterface extends Axios {
@@ -88,12 +90,21 @@ export interface AxiosInterface extends Axios {
   <T = any>(url: string, config?: AxiosRequestConfig): AxiosPromise<T>;
 };
 
+export interface AxiosClassStatic {
+  new(config: AxiosRequestConfig): Axios;
+};
+
 export interface AxiosStatic extends AxiosInterface {
   create(config?: AxiosRequestConfig): AxiosInterface;
 
   CancelToken: CancelTokenStatic;
   Cancel: CancelStatic;
   isCancel: (value: any) => boolean;
+
+  all<T>(promises: Array<T | Promise<T>>): Promise<T[]>;
+  spread<T, R>(callback: (...args: T[]) => R): (arr: T[]) => R;
+
+  Axios: AxiosClassStatic;
 };
 
 export interface AxiosInterceptManager<T> {
