@@ -65,6 +65,9 @@
   * Customized status check
     * Add `validateStatus` in `AxiosRequestConfig` which defines whether to resolve or reject the promise for a given HTTP response status code.
     * If `validateStatus` returns `true` (or is set to `null` or `undefined`), the promise will be resolved; otherwise, the promise will be rejected.
+  * `baseURL`
+    * Add `baseURL` which defines a pre-defined base URL in request.
+    * If input url is relative, combine basde and input url in the `XMLHTTPRequest`.
 
 ## Create Typescript project using `typescript-library-starter`
   ```
