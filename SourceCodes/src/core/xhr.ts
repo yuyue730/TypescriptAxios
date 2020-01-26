@@ -9,7 +9,7 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
 
   return new Promise((resolve, reject) => {
     const {
-      data = null, url, method='get', headers, responseType, 
+      data = null, url, method = 'get', headers = {}, responseType, 
       timeout, cancelToken, withCredentials,
       xsrfCookieName, xsrfHeaderName,
       onDownloadProgress, onUploadProgress,
