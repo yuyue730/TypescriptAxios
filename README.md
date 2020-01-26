@@ -91,7 +91,7 @@
   * Install npm package `atob` for `authorization` demo.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response or other data in Chrome.
 
-* Unit Test using `Jest`
+## Unit Test using `Jest`
   * Setup Jest with the following package versions, and `npm install` to update all releted packages to their latest version. 
     ```
     {
