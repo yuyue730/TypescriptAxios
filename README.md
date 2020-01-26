@@ -90,4 +90,17 @@
   * Install npm packages `nprogress`, `css-loader`, `connect-multiparty` and `style-loader` for `upload_download` demo. Follow the steps in `SourceCodes/upload_download/app.ts` to test both features.
   * Install npm package `atob` for `authorization` demo.
   * Run `npm run dev`, go to `http://localhost:8080/` and check Network Response or other data in Chrome.
-  
+
+* Unit Test using `Jest`
+  * Setup Jest with the following package versions, and `npm install` to update all releted packages to their latest version. 
+    ```
+    {
+      "@types/jest": "^24.0.13",
+      "jest": "^24.8.0",
+      "jest-config": "^24.8.0",
+      "ts-jest": "^24.0.2",
+      "typescript": "^3.4.5"
+    }
+    ```
+  * For request part test, install `jamine-ajax` related packages. Require all jasmine required packages in `/test/boot.ts` and install `Jasmine.AJAX` before requests test suite gets run.
+    * In `test/helper.ts`, export a function `getAJAXRequest()` that resolves AJAX response promiese. 
