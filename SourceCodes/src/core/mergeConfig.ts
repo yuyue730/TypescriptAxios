@@ -26,7 +26,7 @@ function deepMergeStrat(defaultVal: any, userVal: any): any {
     return userVal;
   } else if (isPlainObject(defaultVal)) {
     return deepMerge(defaultVal);
-  } else if (typeof defaultVal !== 'undefined') {
+  } else {
     return defaultVal;
   }
 }
