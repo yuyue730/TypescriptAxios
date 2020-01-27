@@ -92,10 +92,10 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
       if (isFormData(data)) {
         delete headers['Content-Type'];
       }
-  
+
       if (withCredentials && isURLSameOrigin(url!) && xsrfCookieName) {
         const xsrfValue = cookie.read(xsrfCookieName);
-  
+
         if (xsrfValue && xsrfHeaderName) {
           headers[xsrfHeaderName] = xsrfValue;
         }

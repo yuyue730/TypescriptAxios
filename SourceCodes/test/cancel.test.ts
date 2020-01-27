@@ -1,6 +1,5 @@
 import axios from '../src/index';
 import { getAjaxRequest } from './helper';
-import CancelToken from '../src/cancel/CancelToken';
 
 describe('cancel', () => {
   let CancelToken = axios.CancelToken;
