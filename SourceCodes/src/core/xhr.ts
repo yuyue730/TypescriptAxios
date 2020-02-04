@@ -93,7 +93,7 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
         delete headers['Content-Type'];
       }
 
-      if (withCredentials && isURLSameOrigin(url!) && xsrfCookieName) {
+      if ((withCredentials || isURLSameOrigin(url!)) && xsrfCookieName) {
         const xsrfValue = cookie.read(xsrfCookieName);
 
         if (xsrfValue && xsrfHeaderName) {
