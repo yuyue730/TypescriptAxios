@@ -1,6 +1,5 @@
 import axios, { AxiosResponse, AxiosTransformer } from '../src/index';
 import { getAjaxRequest } from './helper';
-import { transformRequest } from '../src/helpers/data';
 
 describe('transform', () => {
   beforeEach(() => {

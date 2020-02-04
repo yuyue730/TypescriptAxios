@@ -39,7 +39,7 @@ describe('xsrf', () => {
     document.cookie = axios.defaults.xsrfCookieName + '=12345';
     axios('http://www.google.com', { withCredentials: true });
     return getAjaxRequest().then(request => {
-      expect(request.requestHeaders[axios.defaults.xsrfHeaderName!]).toBeUndefined();
+      expect(request.requestHeaders[axios.defaults.xsrfHeaderName!]).toBe('12345');
     });
   });
 });
