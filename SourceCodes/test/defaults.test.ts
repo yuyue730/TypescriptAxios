@@ -101,4 +101,28 @@ describe("defaults", () => {
       ));
     })
   });
+
+  test('Default baseUrl appends relative location', () => {
+    axios.defaults.baseURL = 'http://www.google.com';
+    const instance = axios.create();
+
+    instance.get('/hello');
+
+    return getAjaxRequest().then(request => {
+      expect(request.url).toBe('http://www.google.com/hello');
+      delete axios.defaults.baseURL;
+    });
+  });
+
+  test('Add defaults after instance created', () => {
+    const instance = axios.create();
+    axios.defaults.baseURL = 'http://www.google.com';
+
+    instance.get('/hello');
+
+    return getAjaxRequest().then(request => {
+      expect(request.url).toBe('/hello');
+      delete axios.defaults.baseURL;
+    });
+  })
 });
