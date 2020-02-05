@@ -29,7 +29,7 @@
   * Error Handling
     * Handle response with wrong Network Error, Timeout and Non-200 response status
     * Encapsulate error into an `AxiosError` class object.
-  * Define an Axios interface with methods `request`, `get`, `delete`, `delete`, `head`, `options`, `post`, `put` and `patch`.
+  * Define an Axios interface with methods `request`, `get`, `delete`, `head`, `options`, `post`, `put` and `patch`.
     * Encapsulate axios into an `Axios` class and an `AxiosInterface` that has one method. Mixin the class and the interface with request method in the `Axios` class binded to the interface's method.
     * Support `axios()` overloads as `axios(config)` and `axios(url, config)`.
     * Support generic types for response data.
