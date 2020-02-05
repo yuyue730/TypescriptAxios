@@ -1,5 +1,12 @@
 # Project setup and basic documentations
 
+## Project Summary
+  * Implement `Axios` node package library using Typescript;
+  * Define `Axios` interface that takes in `AxiosRequestConfig` and make correct `XMLHttpRequests`;
+  * Support `Interceptors` in `AxiosRequestConfig` that execute predefined functions to process request and response data;
+  * Support canceling requests before and after request being sent out;
+  * Implement Unit Tests using Jest test framework and achieve 95% code coverage
+
 ## Install Typescript
   * Make sure `node` is installed, install `typescript` and run `tsc -v` to make sure typescript is successfully installed.
     ```
