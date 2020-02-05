@@ -1,7 +1,7 @@
 import { CancelExecutor, Canceler, CancelTokenSource } from "../types";
 import Cancel from './Cancel';
 
-interface resolvePromise {
+interface ResolvePromise {
 	(reason?: Cancel): void;
 }
 
@@ -10,7 +10,7 @@ export default class CancelToken {
 	reason?: Cancel;
 
 	constructor(executor: CancelExecutor) {
-		let resolvePromise: resolvePromise;
+		let resolvePromise: ResolvePromise;
 
 		this.promise = new Promise<Cancel>(resolve => {
 			resolvePromise = resolve;
